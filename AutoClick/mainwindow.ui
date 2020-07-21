@@ -1,0 +1,785 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>622</width>
+    <height>546</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>微软雅黑</family>
+    <weight>75</weight>
+    <bold>true</bold>
+   </font>
+  </property>
+  <property name="windowTitle">
+   <string>自动连点器</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(51, 50, 77);</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <widget class="QPushButton" name="recording">
+    <property name="geometry">
+     <rect>
+      <x>7</x>
+      <y>159</y>
+      <width>301</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::StrongFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton#recording
+{
+background-color:rgb(134,183,200);
+border:2px solid #5F92B2;
+border-radius:5px;
+color:white
+}
+QPushButton#recording:hover
+{
+background-color:rgb(0,130,150);
+border:2px solid #5F92B2;
+border-radius:5px;
+color:white;
+}
+QPushButton#recording:hover:pressed
+{
+background-color:rgb(85,170,255); 
+border:2px solid #3C80B1;
+border-radius:5px;
+color:white;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>开始记录</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="title">
+    <property name="geometry">
+     <rect>
+      <x>2</x>
+      <y>3</y>
+      <width>311</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>10</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="tabletTracking">
+     <bool>false</bool>
+    </property>
+    <property name="autoFillBackground">
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:2px solid #5F92B2;
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>自动连点器 By：xm93cc</string>
+    </property>
+    <property name="textFormat">
+     <enum>Qt::AutoText</enum>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="exit">
+    <property name="geometry">
+     <rect>
+      <x>278</x>
+      <y>-1</y>
+      <width>41</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+QPushButton#exit
+{
+border-image: url(:/res/timg.png);
+border:1px solid #5F92B2;
+border-radius:5px;
+color:white
+}
+QPushButton#exit:hover
+{
+border-image: url(:/res/red.png);
+color: rgb(170, 0, 0);
+border:1px solid #5F92B2;
+border-radius:5px;
+color:white;
+}
+QPushButton#exit:hover:pressed
+{
+border-image: url(:/res/timg.png);
+border:1px solid #3C80B1;
+border-radius:5px;
+color:white;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>X</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="textinfo">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>50</y>
+      <width>291</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>20</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>当前记录坐标</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="execPoint">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>420</y>
+      <width>300</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::StrongFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton#execPoint
+{
+background-color:rgb(207, 69, 0);
+	color: rgb(236, 78, 0);
+border:2px solid #5F92B2;
+border-radius:5px;
+color:white
+}
+QPushButton#execPoint:hover
+{
+background-color:rgb(0,130,150);
+border:2px solid #5F92B2;
+border-radius:5px;
+color:white;
+}
+QPushButton#execPoint:hover:pressed
+{
+background-color:rgb(85,170,255); 
+border:2px solid #3C80B1;
+border-radius:5px;
+color:white;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>开始（F11）</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="time">
+    <property name="geometry">
+     <rect>
+      <x>86</x>
+      <y>320</y>
+      <width>221</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:2px solid #5F92B2;
+color: rgb(255, 255, 255);</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="count">
+    <property name="geometry">
+     <rect>
+      <x>85</x>
+      <y>241</y>
+      <width>221</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:2px solid #5F92B2;
+color: rgb(255, 255, 255);</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>9</x>
+      <y>320</y>
+      <width>71</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:2px solid #5F92B2;
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>间隔时间：</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>8</x>
+      <y>241</y>
+      <width>71</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:2px solid #5F92B2;
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>点击次数：</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>220</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>默认150次</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>298</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>默认50ms</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>390</y>
+      <width>261</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>开始后可按F4终止</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="maxWindow">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>480</y>
+      <width>301</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::StrongFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton#maxWindow
+{
+background-color:rgb(134,183,200);
+border:2px solid #5F92B2;
+border-radius:5px;
+color:white
+}
+QPushButton#maxWindow:hover
+{
+background-color:rgb(0,130,150);
+border:2px solid #5F92B2;
+border-radius:5px;
+color:white;
+}
+QPushButton#maxWindow:hover:pressed
+{
+background-color:rgb(85,170,255); 
+border:2px solid #3C80B1;
+border-radius:5px;
+color:white;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>使用坐标集</string>
+    </property>
+   </widget>
+   <widget class="QPlainTextEdit" name="pointEdit">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>110</y>
+      <width>281</width>
+      <height>281</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>16</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);
+border:2px solid #5F92B2;</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="local">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>110</y>
+      <width>291</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>14</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);
+border:2px solid #5F92B2;</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="openFileWindow">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>50</y>
+      <width>121</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::StrongFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton#openFileWindow
+{
+background-color:rgb(134,183,200);
+border:2px solid #5F92B2;
+border-radius:5px;
+color:white
+}
+QPushButton#savePoint:openFileWindow
+{
+background-color:rgb(0,130,150);
+border:2px solid #5F92B2;
+border-radius:5px;
+color:white;
+}
+QPushButton#openFileWindow:hover:pressed
+{
+background-color:rgb(85,170,255); 
+border:2px solid #3C80B1;
+border-radius:5px;
+color:white;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>打开坐标集</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="savePoint">
+    <property name="geometry">
+     <rect>
+      <x>489</x>
+      <y>50</y>
+      <width>121</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::StrongFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton#savePoint
+{
+background-color:rgb(134,183,200);
+border:2px solid #5F92B2;
+border-radius:5px;
+color:white
+}
+QPushButton#savePoint:hover
+{
+background-color:rgb(0,130,150);
+border:2px solid #5F92B2;
+border-radius:5px;
+color:white;
+}
+QPushButton#savePoint:hover:pressed
+{
+background-color:rgb(85,170,255); 
+border:2px solid #3C80B1;
+border-radius:5px;
+color:white;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>保存坐标集</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="execPoints">
+    <property name="geometry">
+     <rect>
+      <x>326</x>
+      <y>480</y>
+      <width>291</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::StrongFocus</enum>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton#execPoints
+{
+background-color:rgb(207, 69, 0);
+border:2px solid #5F92B2;
+border-radius:5px;
+color:white
+}
+QPushButton#savePoint:execPoints
+{
+background-color:rgb(0,130,150);
+border:2px solid #5F92B2;
+border-radius:5px;
+color:white;
+}
+QPushButton#execPoints:hover:pressed
+{
+background-color:rgb(85,170,255); 
+border:2px solid #3C80B1;
+border-radius:5px;
+color:white;
+}
+</string>
+    </property>
+    <property name="text">
+     <string>开始（F9）</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>400</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>默认150次</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>328</x>
+      <y>421</y>
+      <width>71</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:2px solid #5F92B2;
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>点击次数：</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="pointCount">
+    <property name="geometry">
+     <rect>
+      <x>405</x>
+      <y>421</y>
+      <width>71</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:2px solid #5F92B2;
+color: rgb(255, 255, 255);</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="poinTime">
+    <property name="geometry">
+     <rect>
+      <x>556</x>
+      <y>421</y>
+      <width>61</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:2px solid #5F92B2;
+color: rgb(255, 255, 255);</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_9">
+    <property name="geometry">
+     <rect>
+      <x>480</x>
+      <y>399</y>
+      <width>61</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>默认50ms</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_10">
+    <property name="geometry">
+     <rect>
+      <x>479</x>
+      <y>421</y>
+      <width>71</width>
+      <height>36</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border:2px solid #5F92B2;
+color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>间隔时间：</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_11">
+    <property name="geometry">
+     <rect>
+      <x>330</x>
+      <y>458</y>
+      <width>261</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>微软雅黑</family>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="text">
+     <string>开始后可按F10终止</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections/>
+</ui>
