@@ -134,8 +134,9 @@ void MainWindow::on_execPoint_clicked()
 }
 
 void MainWindow::on_exit_clicked(){
-
-
+	// 清空容器残留数据
+    if(execPoint->points.size()>0)
+        execPoint->points.clear();
     exit(1);
 
 
@@ -270,6 +271,9 @@ void MainWindow::on_execPoints_clicked()
        execPoint->seepTime=ui->poinTime->text().toLong();
 
        execPoint->start();
+	   
+	      //释放内存
+      pointsList.clear();
 
 
     } catch (...) {
