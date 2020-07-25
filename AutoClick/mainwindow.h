@@ -36,20 +36,22 @@ protected:
     void mousePressEvent(QMouseEvent *e);
     void mouseMoveEvent(QMouseEvent *e);
 
+
+    //按钮槽函数
 private slots:
-
+    //退出
     void on_exit_clicked();
-
+     //扩展坐标集窗口
     void on_maxWindow_clicked();
-
+    //选择打开文件
     void on_openFileWindow_clicked();
-
+    //保存文件
     void on_savePoint_clicked();
-
+    //执行坐标集
     void on_execPoints_clicked();
-
+     //记录坐标集
     void on_recording_clicked();
-
+     //执行单个坐标
     void on_execPoint_clicked();
 
 private:

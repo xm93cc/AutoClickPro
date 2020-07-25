@@ -1,4 +1,4 @@
-#include "Clickthread.h"
+#include "clickthread.h"
 #include <QDebug>
 #include<mainwindow.h>
 #include<QMessageBox>
